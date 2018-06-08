@@ -1,0 +1,28 @@
+Quiz: 2 joueurs
+
+Titre: Le quiz infernal
+
+Local/Client Serveur
+
+On gagne au score
+
+Plusieurs phases
+
+1)Petit quiz Qui veut gagner des millions ?
+
+2)Roulette avec des points puis question a repondre pour gagner les points
+
+3)12 coups de midi 1 minute phase -> reponse par ecrit + accepter les fautes d'orthographe
+On peut passer les questions
+
+4)Questions à la chaine : 1 erreur et c'est perdu
+
+5)Bonus/Malus
+Si on passe on a un malus aléatoire
+Propositions de réponse
+
+
+Packages:
+-Catégories de questions
+-Main -> menu/scene/main
+-Phases ->1/2/3/4/5
