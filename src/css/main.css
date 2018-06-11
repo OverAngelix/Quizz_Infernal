@@ -1,0 +1,8 @@
+
+#button2{
+	-fx-pref-width: 250;
+	-fx-padding: 15 30 15 30;
+	-fx-font-weight: bold;
+	-fx-font-family: Helvetica;
+	 -fx-background-insets: 0,1,4,5;
+}
