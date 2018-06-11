@@ -1,3 +1,17 @@
 #pane{
 	-fx-alignment :  center;
 }
+
+.button{
+	-fx-background-color: gray;
+	-fx-padding:10px;
+	-fx-margin:auto;
+}
+
+.titre{
+	
+}
+
+.question{
+	
+}
