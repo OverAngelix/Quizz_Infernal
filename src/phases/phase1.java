@@ -21,7 +21,7 @@ public class phase1 extends Application {
 		
 		//Classes et Id
 		
-		titre_phase.getStyleClass().add("titre");
+		
 		question.getStyleClass().add("question");
 		A.getStyleClass().add("button");
 		B.getStyleClass().add("button");
@@ -36,8 +36,8 @@ public class phase1 extends Application {
 		HBox h_rep1 = new HBox (A,B);
 		HBox h_rep2 = new HBox (C,D);
 		
+		h_titre.getStyleClass().add("titre");
 		root.getChildren().addAll(h_titre,h_question,h_rep1,h_rep2);
-		
 		root.setId("pane");
 		Scene scn = new Scene(root,400,400);
 		scn.getStylesheets().add(getClass().getResource("../css/main.css").toExternalForm());
