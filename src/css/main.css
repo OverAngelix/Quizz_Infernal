@@ -20,6 +20,16 @@ Button{
 
 .titre{
 	-fx-alignment :  center;
+	-fx-font-weight: bold;
+	-fx-font-family: Helvetica;
+	-fx-font-size:20;
+}
+
+#titre_question{
+	-fx-alignment :  center;
+	-fx-font-weight: bold;
+	-fx-font-family: Helvetica;
+	-fx-font-size:15;
 }
 
 .question{
