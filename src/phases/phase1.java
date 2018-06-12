@@ -31,7 +31,7 @@ public class phase1 extends Application {
 		
 		//Classes et Id
 		
-		System.out.println(changeQuestion());
+		System.out.println(phase1.changeQuestion());
 		question.getStyleClass().add("question");
 		A.getStyleClass().add("button");
 		B.getStyleClass().add("button");
@@ -78,6 +78,7 @@ public class phase1 extends Application {
 		}
 		
 		sc.close();
+		questions_reponses.remove(questions_reponses.size()-1);
 		return questions_reponses;
 
 	}
