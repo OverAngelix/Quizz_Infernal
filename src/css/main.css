@@ -3,19 +3,19 @@
 	-fx-padding: 15 30 15 30;
 	-fx-font-weight: bold;
 	-fx-font-family: Helvetica;
-	 -fx-background-insets: 0,1,4,5;
+	-fx-background-insets: 0,1,4,5;
 }
 
 #pane{
 	-fx-alignment :  center;
 }
 
-.button{
+Button{
 	-fx-pref-width: 250;
 	-fx-padding: 15 30 15 30;
 	-fx-font-weight: bold;
 	-fx-font-family: Helvetica;
-	 -fx-background-insets: 0,1,4,5;
+	-fx-background-insets: 0,1,4,5;
 }
 
 .titre{
@@ -23,5 +23,4 @@
 }
 
 .question{
-	
 }
