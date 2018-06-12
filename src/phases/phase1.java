@@ -28,12 +28,14 @@ public class phase1 extends Application {
 	
 	public void start(Stage stage) throws Exception {
 		phase1.changeQuestion();
+		int longueur = questions_reponses.size();
+		int alea = rand.nextInt(longueur/5)*5;
 		Label titre_phase = new Label("Question simples");
-		Label question = new Label(questions_reponses.get(0));
-		Button A = new Button (questions_reponses.get(rand.nextInt(4)+1));
-		Button B = new Button (questions_reponses.get(rand.nextInt(4)+1));
-		Button C = new Button (questions_reponses.get(rand.nextInt(4)+1));
-		Button D = new Button (questions_reponses.get(rand.nextInt(4)+1));
+		Label question = new Label(questions_reponses.get(alea));
+		Button A = new Button (questions_reponses.get(alea+1));
+		Button B = new Button (questions_reponses.get(alea+2));
+		Button C = new Button (questions_reponses.get(alea+3));
+		Button D = new Button (questions_reponses.get(alea+4));
 		
 		//Classes et Id
 		
@@ -59,7 +61,16 @@ public class phase1 extends Application {
 		
 		
 		 A.addEventHandler(ActionEvent.ACTION, e -> {
-			 System.out.println("FAUX C'EST LARA CROFT");
+			 System.out.println("Bravo");
+		 });
+		 B.addEventHandler(ActionEvent.ACTION, e -> {
+			 System.out.println("Faux");
+		 });
+		 C.addEventHandler(ActionEvent.ACTION, e -> {
+			 System.out.println("Faux");
+		 });
+		 D.addEventHandler(ActionEvent.ACTION, e -> {
+			 System.out.println("Faux");
 		 });
 		
 		
@@ -100,5 +111,6 @@ public class phase1 extends Application {
 		questions_reponses.remove(questions_reponses.size()-1);
 
 	}
+	
 	
 }
