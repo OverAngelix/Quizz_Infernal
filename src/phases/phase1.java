@@ -4,13 +4,16 @@ package phases;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -19,19 +22,26 @@ import javafx.stage.Stage;
 
 public class phase1 extends Application {
 
+	
+	private Random rand = new Random();
 	public static ArrayList<String> questions_reponses = new ArrayList<>();
 	
 	public void start(Stage stage) throws Exception {
+		phase1.changeQuestion();
 		Label titre_phase = new Label("Question simples");
-		Label question = new Label("Francky, mais qui est lui ?");
-		Button A = new Button ("Franck Dubosc");
-		Button B = new Button ("Franck Ribéry");
-		Button C = new Button ("Anjetar");
-		Button D = new Button ("Jonathan");
+		Label question = new Label(questions_reponses.get(0));
+		Button A = new Button (questions_reponses.get(rand.nextInt(4)+1));
+		Button B = new Button (questions_reponses.get(rand.nextInt(4)+1));
+		Button C = new Button (questions_reponses.get(rand.nextInt(4)+1));
+		Button D = new Button (questions_reponses.get(rand.nextInt(4)+1));
 		
 		//Classes et Id
 		
-		System.out.println(phase1.changeQuestion());
+		
+		
+		
+		
+		
 		question.getStyleClass().add("question");
 		A.getStyleClass().add("button");
 		B.getStyleClass().add("button");
@@ -48,8 +58,17 @@ public class phase1 extends Application {
 		HBox h_rep2 = new HBox (C,D);
 		
 		
-		root.getChildren().addAll(h_titre,qr);
+		 A.addEventHandler(ActionEvent.ACTION, e -> {
+			 System.out.println("FAUX C'EST LARA CROFT");
+		 });
+		
+		
 		qr.getChildren().addAll(h_question,h_rep1,h_rep2);
+		Region blanc = new Region();
+		blanc.setPrefHeight(100);
+		blanc.setPrefWidth(100);
+		h_question.setId("pane");
+		root.getChildren().addAll(h_titre,blanc,qr);
 		
 		h_titre.getStyleClass().add("titre");
 		qr.setId("pane");
@@ -68,7 +87,7 @@ public class phase1 extends Application {
 	}
 	
 		
-	public static ArrayList<String> changeQuestion() throws IOException {
+	public static void changeQuestion() throws IOException {
 		File doc = new File("src/questions/JeuxVideos.txt");
 		Scanner sc = new Scanner (doc);
 		String texte = "init";
@@ -79,7 +98,6 @@ public class phase1 extends Application {
 		
 		sc.close();
 		questions_reponses.remove(questions_reponses.size()-1);
-		return questions_reponses;
 
 	}
 	
