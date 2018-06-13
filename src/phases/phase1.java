@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import programmeprincipal.Scores;
 
 
 
@@ -28,7 +29,7 @@ public class phase1 extends Application {
 	public static ArrayList<String> questions_reponses = new ArrayList<>();
 	public static String[] categories = {"Jeux Videos","Musique"};
 	
-	public void start(Stage stage) throws Exception {
+	public void startGame(Stage stage) throws Exception {
 		phase1.changeQuestion();
 		int longueur = questions_reponses.size();
 		int alea = rand.nextInt(longueur/5)*5;
@@ -40,6 +41,9 @@ public class phase1 extends Application {
 		Button B = new Button (questions_reponses.get(alea+choix.get(1)));
 		Button C = new Button (questions_reponses.get(alea+choix.get(2)));
 		Button D = new Button (questions_reponses.get(alea+choix.get(3)));
+		
+		Label score1 = new Label (""+Scores.s1);
+		Label score2 = new Label (""+Scores.s2);
 		
 		
 		//Classes et Id
@@ -58,6 +62,7 @@ public class phase1 extends Application {
 		
 		
 		VBox root = new VBox();
+		HBox header = new HBox();
 		HBox h_titre = new HBox (titre_phase);
 		VBox qr = new VBox();
 		HBox h_question = new HBox(question);
@@ -80,13 +85,15 @@ public class phase1 extends Application {
 		
 		
 		qr.getChildren().addAll(h_question,h_rep1,h_rep2);
+		header.getChildren().addAll(score1,h_titre,score2);
 		Region blanc = new Region();
 		blanc.setPrefHeight(100);
 		blanc.setPrefWidth(100);
 		h_question.setId("pane");
 		h_rep1.setId("pane");
 		h_rep2.setId("pane");
-		root.getChildren().addAll(h_titre,blanc,qr);
+		header.setId("pane");
+		root.getChildren().addAll(header,blanc,qr);
 		
 		h_titre.getStyleClass().add("titre");
 		h_question.setId("titre_question");
@@ -121,6 +128,14 @@ public class phase1 extends Application {
 
 	}
 	
+	void restart(Stage stage) throws Exception {
+	    startGame(stage);
+	}
+	
+	public void start(Stage stage) throws Exception {
+	    startGame(stage);
+	}
+	
 	//fonction qui renvoie 4 nombres entre 1 et 4 tous différents
 	public static ArrayList<Integer> aleachoix() {
 		ArrayList<Integer> nombres = new ArrayList<>();
@@ -133,8 +148,12 @@ public class phase1 extends Application {
 	}
 	
 	public Boolean correction(Button b,String reponse) {
+		Scores.s1+=1;
 		return b.getText().equals(reponse);
+		
+	
 	}
+
 	
 	
 }
