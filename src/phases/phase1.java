@@ -28,6 +28,7 @@ public class phase1 extends Application {
 	private static Random rand = new Random();
 	public static ArrayList<String> questions_reponses = new ArrayList<>();
 	public static String[] categories = {"Jeux Videos","Musique"};
+	public static int numero_question = 1;
 	
 	public void startGame(Stage stage) throws Exception {
 		phase1.changeQuestion();
@@ -36,7 +37,7 @@ public class phase1 extends Application {
 		ArrayList<Integer> choix = aleachoix();
 		String reponse = questions_reponses.get(alea+1);
 		Label titre_phase = new Label("Phase 1: Questions simples");
-		Label question = new Label(questions_reponses.get(alea));
+		Label question = new Label(numero_question+") "+questions_reponses.get(alea));
 		Button A = new Button (questions_reponses.get(alea+choix.get(0)));
 		Button B = new Button (questions_reponses.get(alea+choix.get(1)));
 		Button C = new Button (questions_reponses.get(alea+choix.get(2)));
@@ -71,16 +72,16 @@ public class phase1 extends Application {
 		
 		
 		 A.addEventHandler(ActionEvent.ACTION, e -> {
-			 System.out.println(correction(A,reponse));
+			 correction(A,reponse,stage);
 		 });
 		 B.addEventHandler(ActionEvent.ACTION, e -> {
-			 System.out.println(correction(B,reponse));
+			 correction(B,reponse,stage);
 		 });
 		 C.addEventHandler(ActionEvent.ACTION, e -> {
-			 System.out.println(correction(C,reponse));
+			 correction(C,reponse,stage);
 		 });
 		 D.addEventHandler(ActionEvent.ACTION, e -> {
-			 System.out.println(correction(D,reponse));
+			 correction(D,reponse,stage);
 		 });
 		
 		
@@ -147,10 +148,44 @@ public class phase1 extends Application {
 		return nombres;
 	}
 	
-	public Boolean correction(Button b,String reponse) {
-		Scores.s1+=1;
-		return b.getText().equals(reponse);
+	public void correction(Button b,String reponse,Stage stage) {
 		
+		if (numero_question == 6) {
+			phase2 p2 = new phase2();
+			Stage s = new Stage();
+			try {
+				p2.start(s);
+				stage.close();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+		else {
+		if (b.getText().equals(reponse)) {
+			if (Scores.tour == 1) {
+				Scores.s1+=1;
+			}
+			else {
+				Scores.s2+=1;
+			}
+		}
+		if (Scores.tour == 1) {
+			Scores.tour = 2;
+		}
+		else {
+			Scores.tour = 1;
+			numero_question +=1;
+		}
+		
+		phase1 p1 = new phase1();
+		Stage s = new Stage();
+		try {
+			p1.start(s);
+			stage.close();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		}
 	
 	}
 
