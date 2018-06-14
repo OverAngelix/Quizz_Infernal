@@ -43,8 +43,8 @@ public class phase1 extends Application {
 		Button C = new Button (questions_reponses.get(alea+choix.get(2)));
 		Button D = new Button (questions_reponses.get(alea+choix.get(3)));
 		
-		Label score1 = new Label (""+Scores.s1);
-		Label score2 = new Label (""+Scores.s2);
+		Label score1 = new Label ("Joueur 1: "+Scores.s1);
+		Label score2 = new Label ("Joueur 2: "+Scores.s2);
 		
 		
 		//Classes et Id
@@ -94,6 +94,8 @@ public class phase1 extends Application {
 		h_rep1.setId("pane");
 		h_rep2.setId("pane");
 		header.setId("pane");
+		score1.setId("score1");
+		score2.setId("score2");
 		root.getChildren().addAll(header,blanc,qr);
 		
 		h_titre.getStyleClass().add("titre");
@@ -129,10 +131,6 @@ public class phase1 extends Application {
 
 	}
 	
-	void restart(Stage stage) throws Exception {
-	    startGame(stage);
-	}
-	
 	public void start(Stage stage) throws Exception {
 	    startGame(stage);
 	}
@@ -150,7 +148,7 @@ public class phase1 extends Application {
 	
 	public void correction(Button b,String reponse,Stage stage) {
 		
-		if (numero_question == 6) {
+		if (numero_question == 5 && Scores.tour == 2) {
 			phase2 p2 = new phase2();
 			Stage s = new Stage();
 			try {

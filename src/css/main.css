@@ -10,6 +10,14 @@
 	-fx-alignment :  center;
 }
 
+#score1{
+	-fx-padding: 0 50 0 0;
+}
+
+#score2{
+	-fx-padding: 0 0 0 50;
+}
+
 Button{
 	-fx-pref-width: 250;
 	-fx-padding: 15 30 15 30;
