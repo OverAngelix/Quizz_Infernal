@@ -1,7 +1,10 @@
 package phases;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import javafx.animation.RotateTransition;
 import javafx.application.Application;
@@ -19,58 +22,82 @@ import javafx.util.Duration;
 public class phase2 extends Application {
 
 	private ArrayList<String> questions = new ArrayList<>();
-	Button rep4;
-	Button rep3;
-	Button rep2;
-	Button rep1;
-	Label question;
+	int longueur;
+	int alea;
+	HBox q1q2 = new HBox();
+	HBox q3q4 = new HBox();
+	private Random rand = new Random();
+	Button rep4= new Button();
+	Button rep3= new Button();
+	Button rep2= new Button();
+	Button rep1= new Button();
+	Label question= new Label();
 	
-	public void tyuiop () {
-		questions.add("Combien vaut un Iphone 100 ?");
-		questions.add("150€");
-		questions.add("1520€");
-		questions.add("15550€");
-		questions.add("151550€");
-		questions.add("Qui est le plus fort a FORTNITE");
-		questions.add("Steven");
-		questions.add("Florent");
-		questions.add("Ekyn");
-		questions.add("Florian");
+	public void tyuiop () throws FileNotFoundException {
+		File doc = new File("src/questions/Musique.txt");
+		Scanner sc = new Scanner (doc);
+		String texte = "init";
+		while (!(texte.equals("FIN"))) {
+			texte=sc.nextLine();
+			questions.add(texte);
+		}
+		
+		sc.close();
 				
 	}
 	public void settere() {
-		question.setText(questions.get(5));
-		rep1.setText(questions.get(6));
-		rep2.setText(questions.get(7));
-		rep3.setText(questions.get(8));
-		rep4.setText(questions.get(9));
+		longueur = questions.size();
+		alea = rand.nextInt(longueur/5)*5;
+		question.setText(questions.get(alea));
+		rep1.setText(questions.get(alea+1));
+		rep2.setText(questions.get(alea+2));
+		rep3.setText(questions.get(alea+3));
+		rep4.setText(questions.get(alea+4));
+	}
+	
+	public void placement_button() {
+		q1q2.getChildren().clear();
+		q3q4.getChildren().clear();
+		int aleao= rand.nextInt(4);
+		if (aleao==0) {
+			q1q2.getChildren().addAll(rep1,rep2);
+			q3q4.getChildren().addAll(rep3,rep4);
+		}
+		if (aleao==1) {
+			q1q2.getChildren().addAll(rep4,rep2);
+			q3q4.getChildren().addAll(rep3,rep1);
+		}
+		if (aleao==2) {
+			q1q2.getChildren().addAll(rep3,rep2);
+			q3q4.getChildren().addAll(rep1,rep4);
+		}
+		if (aleao==3) {
+			q1q2.getChildren().addAll(rep2,rep1);
+			q3q4.getChildren().addAll(rep3,rep4);
+		}
 	}
 	
 	public void start(Stage stage) throws Exception {
 		
 		tyuiop();
 		
-		question = new Label(questions.get(0));
-		
-		rep1 = new Button(questions.get(1));
-		rep2 = new Button(questions.get(2));
-		 rep3= new Button(questions.get(3));
-		 rep4= new Button(questions.get(4));
+		settere();
 		
 		rep1.setOnMouseClicked(e->{
-			System.out.println(rep1.getText().equals(questions.get(1)));
+			//System.out.println(rep1.getText().equals(questions.get(1)));
 			settere();
+			placement_button();
 		});
 		rep2.setOnMouseClicked(e->{
-			System.out.println(rep2.getText().equals(questions.get(1)));
+			//System.out.println(rep2.getText().equals(questions.get(1)));
 			settere();
 		});
 		rep3.setOnMouseClicked(e->{
-			System.out.println(rep3.getText().equals(questions.get(1)));
+			//System.out.println(rep3.getText().equals(questions.get(1)));
 			settere();
 		});
 		rep4.setOnMouseClicked(e->{
-			System.out.println(rep4.getText().equals(questions.get(1)));
+			//System.out.println(rep4.getText().equals(questions.get(1)));
 			settere();
 		});
 		
@@ -96,8 +123,8 @@ public class phase2 extends Application {
 		 });
 		
 		VBox roulette = new VBox(imageRoue,imageFleche) ;
-		HBox q1q2 = new HBox(rep1,rep2);
-		HBox q3q4 = new HBox(rep3,rep4);
+		q1q2.getChildren().addAll(rep1,rep2);
+		q3q4.getChildren().addAll(rep3,rep4);
 		 roulette.setId("pane");
 		 q1q2.setId("pane");
 		 q3q4.setId("pane");
