@@ -43,8 +43,8 @@ public class phase1 extends Application {
 		Button C = new Button (questions_reponses.get(alea+choix.get(2)));
 		Button D = new Button (questions_reponses.get(alea+choix.get(3)));
 		
-		Label score1 = new Label ("Joueur 1: "+Scores.s1);
-		Label score2 = new Label ("Joueur 2: "+Scores.s2);
+		Label score1 = new Label (Scores.j1+ ": "+Scores.s1);
+		Label score2 = new Label ( Scores.j2+": "+Scores.s2);
 		
 		
 		//Classes et Id

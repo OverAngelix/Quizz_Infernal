@@ -1,5 +1,6 @@
 package phases;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import javafx.animation.RotateTransition;
@@ -17,19 +18,62 @@ import javafx.util.Duration;
 
 public class phase2 extends Application {
 
+	private ArrayList<String> questions = new ArrayList<>();
+	Button rep4;
+	Button rep3;
+	Button rep2;
+	Button rep1;
+	Label question;
+	
+	public void tyuiop () {
+		questions.add("Combien vaut un Iphone 100 ?");
+		questions.add("150€");
+		questions.add("1520€");
+		questions.add("15550€");
+		questions.add("151550€");
+		questions.add("Qui est le plus fort a FORTNITE");
+		questions.add("Steven");
+		questions.add("Florent");
+		questions.add("Ekyn");
+		questions.add("Florian");
+				
+	}
+	public void settere() {
+		question.setText(questions.get(5));
+		rep1.setText(questions.get(6));
+		rep2.setText(questions.get(7));
+		rep3.setText(questions.get(8));
+		rep4.setText(questions.get(9));
+	}
 	
 	public void start(Stage stage) throws Exception {
-	
-		Label question = new Label("Combien vaut un Iphone 100 ?");
 		
-		Button rep1 = new Button("150€");
-		Button rep2 = new Button("1784€");
-		Button rep3 = new Button("Un Smic ?");
-		Button rep4 = new Button("Au pire tu vends Dark :) ");
-		rep1.setId("button2");
-		rep2.setId("button2");
-		rep3.setId("button2");
-		rep4.setId("button2");
+		tyuiop();
+		
+		question = new Label(questions.get(0));
+		
+		rep1 = new Button(questions.get(1));
+		rep2 = new Button(questions.get(2));
+		 rep3= new Button(questions.get(3));
+		 rep4= new Button(questions.get(4));
+		
+		rep1.setOnMouseClicked(e->{
+			System.out.println(rep1.getText().equals(questions.get(1)));
+			settere();
+		});
+		rep2.setOnMouseClicked(e->{
+			System.out.println(rep2.getText().equals(questions.get(1)));
+			settere();
+		});
+		rep3.setOnMouseClicked(e->{
+			System.out.println(rep3.getText().equals(questions.get(1)));
+			settere();
+		});
+		rep4.setOnMouseClicked(e->{
+			System.out.println(rep4.getText().equals(questions.get(1)));
+			settere();
+		});
+		
 		
 		
 		Button start = new Button("NOUVELLE PARTIE !");
