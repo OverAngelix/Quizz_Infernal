@@ -19,11 +19,27 @@
 }
 
 Button{
+	-fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color; 
 	-fx-pref-width: 250;
 	-fx-padding: 15 30 15 30;
 	-fx-font-weight: bold;
 	-fx-font-family: Helvetica;
-	-fx-background-insets: 0,1,4,5;
+	-fx-background-insets: 0,1,4,5;	
+	-fx-border-color: black;
+	-fx-border-insets: 5px;
+    -fx-background-insets: 5px;	
+}
+
+Button:focused {
+    -fx-background-color: -fx-outer-border, -fx-inner-border, -fx-body-color; 
+    -fx-pref-width: 250;
+	-fx-padding: 15 30 15 30;
+	-fx-font-weight: bold;
+	-fx-font-family: Helvetica;
+	-fx-background-insets: 0,1,4,5;	
+	-fx-border-color: black;
+	-fx-border-insets: 5px;
+    -fx-background-insets: 5px;	
 }
 
 .titre{

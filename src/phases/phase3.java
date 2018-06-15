@@ -35,6 +35,7 @@ public class phase3 extends Application {
 		phase3.changeQuestion();
 		int longueur = questions_reponses.size();
 		int alea = rand.nextInt(longueur/5)*5;
+		
 		ArrayList<Integer> choix = aleachoix();
 		String reponse = questions_reponses.get(alea+1);
 		Label titre_phase = new Label("Phase 3: Questions à la chaîne");
@@ -105,14 +106,6 @@ public class phase3 extends Application {
 				Scores.s2 += 1;
 				Scores.tour = 1;
 			}
-			phase3 p3 = new phase3();
-			Stage s = new Stage();
-			try {
-				p3.start(s);
-				stage.close();
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
 		}
 		else {
 			if (Scores.tour == 1) {
@@ -120,15 +113,15 @@ public class phase3 extends Application {
 			}
 			else {
 				Scores.tour = 1;
-				phase3 p3 = new phase3();
-				Stage s = new Stage();
-				try {
-					p3.start(s);
-					stage.close();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
 			}
+		}
+		phase3 p3 = new phase3();
+		Stage s = new Stage();
+		try {
+			p3.start(s);
+			stage.close();
+		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
 		
 	}
@@ -169,48 +162,6 @@ public class phase3 extends Application {
 		Collections.shuffle(nombres);
 		return nombres;
 	}
-	
-	public void correction(Button b,String reponse,Stage stage) {
-		
-		if (numero_question == 1 && Scores.tour == 2) {
-			phase2 p2 = new phase2();
-			Stage s = new Stage();
-			try {
-				p2.start(s);
-				stage.close();
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-		}
-		else {
-		if (b.getText().equals(reponse)) {
-			if (Scores.tour == 1) {
-				Scores.s1+=1;
-			}
-			else {
-				Scores.s2+=1;
-			}
-		}
-		if (Scores.tour == 1) {
-			Scores.tour = 2;
-		}
-		else {
-			Scores.tour = 1;
-			numero_question +=1;
-		}
-		
-		phase1 p1 = new phase1();
-		Stage s = new Stage();
-		try {
-			p1.start(s);
-			stage.close();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		}
-	
-	}
 
-	
 	
 }

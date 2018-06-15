@@ -79,6 +79,7 @@ public class phase2 extends Application {
 	
 	public void start(Stage stage) throws Exception {
 		
+		
 		tyuiop();
 		
 		settere();
