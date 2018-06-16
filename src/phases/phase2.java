@@ -53,6 +53,11 @@ public class phase2 extends Application {
 		rep2.setText(questions.get(alea+2));
 		rep3.setText(questions.get(alea+3));
 		rep4.setText(questions.get(alea+4));
+		questions.remove(alea);
+		questions.remove(alea+1);
+		questions.remove(alea+2);
+		questions.remove(alea+3);
+		questions.remove(alea+4);
 	}
 	
 	public void placement_button() {
@@ -86,20 +91,15 @@ public class phase2 extends Application {
 		
 		rep1.setOnMouseClicked(e->{
 			//System.out.println(rep1.getText().equals(questions.get(1)));
-			settere();
-			placement_button();
 		});
 		rep2.setOnMouseClicked(e->{
 			//System.out.println(rep2.getText().equals(questions.get(1)));
-			settere();
 		});
 		rep3.setOnMouseClicked(e->{
 			//System.out.println(rep3.getText().equals(questions.get(1)));
-			settere();
 		});
 		rep4.setOnMouseClicked(e->{
 			//System.out.println(rep4.getText().equals(questions.get(1)));
-			settere();
 		});
 		
 		
@@ -121,6 +121,10 @@ public class phase2 extends Application {
 			 RotateTransition t2 = new RotateTransition(Duration.seconds(2), imageRoue);
 			 t2.setByAngle(920);
 			 t2.play();	
+			 t2.setOnFinished(a->{
+				 settere();
+				 placement_button();
+			 });
 		 });
 		
 		VBox roulette = new VBox(imageRoue,imageFleche) ;
