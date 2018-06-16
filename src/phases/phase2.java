@@ -33,10 +33,10 @@ public class phase2 extends Application {
 	Button rep1= new Button();
 	Label question= new Label();
 	
-	public void tyuiop () throws FileNotFoundException {
+	public void lecture_question() throws FileNotFoundException {
 		File doc = new File("src/questions/Musique.txt");
 		Scanner sc = new Scanner (doc);
-		String texte = "init";
+		String texte = "";
 		while (!(texte.equals("FIN"))) {
 			texte=sc.nextLine();
 			questions.add(texte);
@@ -45,7 +45,8 @@ public class phase2 extends Application {
 		sc.close();
 				
 	}
-	public void settere() {
+
+	public void modfif_questions() {
 		longueur = questions.size();
 		alea = rand.nextInt(longueur/5)*5;
 		question.setText(questions.get(alea));
@@ -54,10 +55,10 @@ public class phase2 extends Application {
 		rep3.setText(questions.get(alea+3));
 		rep4.setText(questions.get(alea+4));
 		questions.remove(alea);
-		questions.remove(alea+1);
-		questions.remove(alea+2);
-		questions.remove(alea+3);
-		questions.remove(alea+4);
+		questions.remove(alea);
+		questions.remove(alea);
+		questions.remove(alea);
+		questions.remove(alea);
 	}
 	
 	public void placement_button() {
@@ -85,9 +86,9 @@ public class phase2 extends Application {
 	public void start(Stage stage) throws Exception {
 		
 		
-		tyuiop();
+		lecture_question();
 		
-		settere();
+		modfif_questions();
 		
 		rep1.setOnMouseClicked(e->{
 			//System.out.println(rep1.getText().equals(questions.get(1)));
@@ -122,7 +123,7 @@ public class phase2 extends Application {
 			 t2.setByAngle(920);
 			 t2.play();	
 			 t2.setOnFinished(a->{
-				 settere();
+				 modfif_questions();
 				 placement_button();
 			 });
 		 });
@@ -134,7 +135,7 @@ public class phase2 extends Application {
 		 q1q2.setId("pane");
 		 q3q4.setId("pane");
 		VBox root = new VBox(roulette,question,q1q2,q3q4,start);
-		root.setId("pane");
+		root.setId("bg");
 		Scene scn = new Scene(root,500,600);
 		scn.getStylesheets().add(getClass().getResource("../css/main.css").toExternalForm());
 		stage.setScene(scn);
