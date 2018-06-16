@@ -1,3 +1,8 @@
+#bg{
+	-fx-background-image:url("../images/menu_bg.jpg");
+	-fx-alignment :  center;
+}
+
 #button2{
 	-fx-pref-width: 250;
 	-fx-padding: 15 30 15 30;

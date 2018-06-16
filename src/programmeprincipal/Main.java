@@ -43,7 +43,7 @@ public class Main extends Application {
 		});
 		
 		VBox root = new VBox(accueil,start,quit);
-		root.setId("pane");
+		root.setId("bg");
 		Scene scn = new Scene(root,400,400);
 		scn.getStylesheets().add(getClass().getResource("../css/main.css").toExternalForm());
 		stage.setScene(scn);

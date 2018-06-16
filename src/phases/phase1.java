@@ -99,6 +99,7 @@ public class phase1 extends Application {
 		header.setId("pane");
 		score1.setId("score1");
 		score2.setId("score2");
+		root.setId("bg");
 		root.getChildren().addAll(header,blanc,qr);
 		
 		h_titre.getStyleClass().add("titre");

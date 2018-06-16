@@ -84,6 +84,7 @@ public class phase3 extends Application {
 		h_joueur.setId("pane");
 		score1.setId("score1");
 		score2.setId("score2");
+		root.setId("bg");
 		root.getChildren().addAll(header,h_question,blanc,h_joueur,h_reponse);
 		
 		h_titre.getStyleClass().add("titre");
