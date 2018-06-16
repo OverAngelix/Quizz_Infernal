@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -30,21 +31,25 @@ public class phase3 extends Application {
 	public static ArrayList<String> questions_reponses = new ArrayList<>();
 	public static String[] categories = {"Jeux Videos","Musique"};
 	public static int numero_question = 1;
+	int longueur;
+	int alea;
+	String reponse;
+	Label titre_phase = new Label("Phase 3 : Questions à la chaîne");
+	Label question = new Label();
+	Label score1 = new Label (Scores.j1+ ": "+Scores.s1);
+	Label score2 = new Label (Scores.j2+ ": "+Scores.s2);
+	TextField reponseText = new TextField ();
+	Label joueur = new Label ("Au tour du joueur "+Scores.tour);
+	
+	
 	
 	public void startGame(Stage stage) throws Exception {
-		phase3.changeQuestion();
-		int longueur = questions_reponses.size();
-		int alea = rand.nextInt(longueur/5)*5;
+		chargeQuestion("Jeux Videos");
+		chargeQuestion("Musique");
+		settere();
 		
-		ArrayList<Integer> choix = aleachoix();
-		String reponse = questions_reponses.get(alea+1);
-		Label titre_phase = new Label("Phase 3: Questions à la chaîne");
-		Label question = new Label(numero_question+") "+questions_reponses.get(alea));
-		TextField reponseText = new TextField ();
 		
-		Label score1 = new Label ("Joueur 1: "+Scores.s1);
-		Label score2 = new Label ("Joueur 2: "+Scores.s2);
-		Label joueur = new Label ("Joueur "+Scores.tour);
+		
 		
 		
 		//Classes et Id
@@ -115,14 +120,7 @@ public class phase3 extends Application {
 				Scores.tour = 1;
 			}
 		}
-		phase3 p3 = new phase3();
-		Stage s = new Stage();
-		try {
-			p3.start(s);
-			stage.close();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+		settere();
 		
 	}
 
@@ -132,9 +130,8 @@ public class phase3 extends Application {
 	}
 	
 		
-	public static void changeQuestion() throws IOException {
-		int alea = rand.nextInt(categories.length);
-		File doc = new File("src/questions/"+categories[alea]+".txt");
+	public static void chargeQuestion(String categorie) throws IOException {
+		File doc = new File("src/questions/"+categorie+".txt");
 		Scanner sc = new Scanner (doc);
 		String texte = "init";
 		while (!(texte.equals("FIN"))) {
@@ -163,5 +160,20 @@ public class phase3 extends Application {
 		return nombres;
 	}
 
+	public void settere() {
+		longueur = questions_reponses.size();
+		alea = rand.nextInt(longueur/5)*5;
+		reponse = questions_reponses.get(alea+1);
+		question.setText(numero_question+") "+questions_reponses.get(alea));
+		questions_reponses.remove(alea);
+		questions_reponses.remove(alea);
+		questions_reponses.remove(alea);
+		questions_reponses.remove(alea);
+		questions_reponses.remove(alea);
+		score1.setText(Scores.j1+": "+Scores.s1);
+		score2.setText(Scores.j2+": "+Scores.s2);
+		reponseText.setText("");
+		
+	}
 	
 }
