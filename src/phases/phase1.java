@@ -29,7 +29,6 @@ public class phase1 extends Application {
 	
 	private static Random rand = new Random();
 	public static ArrayList<String> questions_reponses = new ArrayList<>();
-	public static String[] categories = {"Jeux Videos","Musique"};
 	public static int numero_question = 1;
 	int longueur;
 	int alea;
@@ -44,8 +43,9 @@ public class phase1 extends Application {
 	Label score2 = new Label ( Scores.j2+": "+Scores.s2);
 	
 	public void startGame(Stage stage) throws Exception {
-		chargeQuestion("Jeux Videos");
-		chargeQuestion("Musique");
+		for (int cat = 0;cat<Scores.categories.length;cat++) {
+			chargeQuestion(Scores.categories[cat]);			
+		}
 		settere();
 		
 		

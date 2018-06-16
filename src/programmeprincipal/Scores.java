@@ -14,6 +14,9 @@ public class Scores {
 	//VARIABLE MODIFIANT LE JOUEUR ACTUEL (1 POUR JOUEUR 1 ET 2 POUR JOUEUR 2)
 	public static int tour = 1; 
 	
+	//CATEGORIES
+	public static String[] categories = {"Jeux Videos","Musique","Animaux","Sport"};
+	
 	
 	
 }
