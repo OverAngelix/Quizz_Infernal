@@ -39,6 +39,7 @@ public class phase3 extends Application {
 	Label score2 = new Label (Scores.j2+ ": "+Scores.s2);
 	TextField reponseText = new TextField ();
 	Label joueur = new Label ("Au tour du joueur "+Scores.tour);
+	public static Label temps = new Label ("00:00");
 	
 	
 	
@@ -48,6 +49,8 @@ public class phase3 extends Application {
 		}
 		settere();
 		
+		Thread t1 = new Thread(new Timer());
+		t1.start();
 		
 		
 		
@@ -66,6 +69,7 @@ public class phase3 extends Application {
 		VBox root = new VBox();
 		HBox header = new HBox();
 		HBox h_titre = new HBox (titre_phase);
+		HBox h_temps = new HBox (temps);
 		HBox h_question = new HBox(question);
 		HBox h_reponse = new HBox (reponseText);
 		HBox h_joueur = new HBox (joueur);
@@ -85,7 +89,7 @@ public class phase3 extends Application {
 		score1.setId("score1");
 		score2.setId("score2");
 		root.setId("bg");
-		root.getChildren().addAll(header,h_question,blanc,h_joueur,h_reponse);
+		root.getChildren().addAll(header,h_temps,h_question,blanc,h_joueur,h_reponse);
 		
 		h_titre.getStyleClass().add("titre");
 		h_question.setId("titre_question");
