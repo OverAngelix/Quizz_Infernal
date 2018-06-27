@@ -49,7 +49,7 @@ public class phase3 extends Application {
 		}
 		settere();
 		
-		Thread t1 = new Thread(new Timer());
+		Thread t1 = new Thread(new Timer(stage));
 		t1.start();
 		
 		
@@ -110,19 +110,19 @@ public class phase3 extends Application {
 		if (reponseText.getText().equals(reponse)) {
 			if (Scores.tour == 1) {
 				Scores.s1 += 1;
-				Scores.tour = 2;
+				//Scores.tour = 2;
 			}
 			else {
 				Scores.s2 += 1;
-				Scores.tour = 1;
+				//Scores.tour = 1;
 			}
 		}
 		else {
 			if (Scores.tour == 1) {
-				Scores.tour = 2;
+				//Scores.tour = 2;
 			}
 			else {
-				Scores.tour = 1;
+				//Scores.tour = 1;
 			}
 		}
 		settere();
@@ -179,6 +179,10 @@ public class phase3 extends Application {
 		score2.setText(Scores.j2+": "+Scores.s2);
 		reponseText.setText("");
 		
+	}
+	
+	static void setTime(int i) {
+		temps.setText(""+i);
 	}
 	
 }
